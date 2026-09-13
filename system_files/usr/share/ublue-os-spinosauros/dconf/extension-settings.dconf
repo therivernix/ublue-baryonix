@@ -66,8 +66,9 @@ pipeline='pipeline_default'
 pipeline='pipeline_default'
 
 [blur-my-shell/dash-to-dock]
-blur=false
+blur=true
 pipeline='pipeline_default_rounded'
+static-blur=false
 
 [blur-my-shell/lockscreen]
 pipeline='pipeline_default'
@@ -100,7 +101,7 @@ toggle-panel=true
 
 [caffeine]
 cli-toggle=false
-indicator-position-max=2
+indicator-position-max=1
 user-enabled=true
 
 [clipboard-indicator]
@@ -118,11 +119,11 @@ strip-text=true
 toggle-menu=['<Super>v']
 
 [custom-command-list]
-command-order=[1, 2, 4, 5, 6, 7, 8, 9, 3, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
+command-order=[1, 2, 4, 5, 6, 7, 8, 9, 3, 10, 11, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 12, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99]
 command1=('Activities Overview', 'dbus-send --session --dest=org.gnome.Shell --type=method_call /org/gnome/Shell org.freedesktop.DBus.Properties.Set string:org.gnome.Shell string:OverviewActive variant:boolean:true', 'focus-windows-symbolic', false)
 command10=('Trash', 'nautilus trash://', 'user-trash-symbolic', true)
 command11=('---', '', '', true)
-command12=('', '', '', true)
+command12=('Disable TPM Unlock', 'ptyxis -- ujust remove-luks-tpm-unlock', 'changes-prevent-symbolic', false)
 command13=('', '', '', true)
 command14=('Settings', 'gnome-control-center', 'org.gnome.Settings-symbolic', true)
 command15=('About', 'gnome-control-center system about', 'help-about-symbolic', false)
@@ -140,7 +141,7 @@ command25=('Firmware Update', 'ptyxis -- /usr/bin/ujust spino-update-firmware', 
 command26=('Pin Update', 'ptyxis -- /usr/bin/ujust spino-rebase', 'view-pin-symbolic', true)
 command27=('Pause Updates', 'ptyxis -- /usr/bin/ujust toggle-updates', 'media-playback-pause-symbolic', true)
 command28=('---', '', '', true)
-command29=('Toggle TPM Unlock', 'ptyxis -- ujust toggle-tpm2', 'changes-prevent-symbolic', false)
+command29=('Enable TPM Unlock', 'ptyxis -- ujust setup-luks-tpm-unlock', 'changes-allow-symbolic', false)
 command3=('Downloads', 'nautilus ~/Downloads', 'folder-download-symbolic', true)
 command30=('Manage Passphrases', 'ptyxis -- ujust spino-manage-luks-passphrases', 'dialog-password-symbolic', false)
 command31=('---', '', '', true)
@@ -249,10 +250,10 @@ autohide-in-fullscreen=true
 background-color='rgb(0,0,0)'
 background-opacity=0.0
 click-action='previews'
-custom-background-color=true
+custom-background-color=false
 custom-theme-shrink=false
 customize-alphas=true
-dash-max-icon-size=32
+dash-max-icon-size=48
 disable-overview-on-startup=true
 dock-fixed=false
 dock-position='BOTTOM'
